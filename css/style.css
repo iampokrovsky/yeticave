@@ -174,7 +174,7 @@ h2 {
   opacity: 0.4;
 }
 
-.main-header__search input[type="search"]:hover + .main-header__search-btn {
+.main-header__search input[type="search"]:hover+.main-header__search-btn {
   opacity: 0.4;
 }
 
@@ -824,7 +824,7 @@ h2 {
   color: #f84646;
 }
 
-input:invalid .form__error{
+input:invalid .form__error {
   display: block;
 }
 
@@ -1233,4 +1233,15 @@ input:invalid .form__error{
 
 .rates__item--end {
   opacity: 0.4;
+}
+
+.error-404 {
+  height: calc(100vh - 478px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-404__title {
+  text-transform: uppercase;
 }

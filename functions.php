@@ -1,5 +1,17 @@
 <?php
 
+function render_template(string $template, array $data = NULL)
+{
+  if (isset($data)) {
+    extract($data);
+  }
+
+  ob_start();
+  require_once($template);
+  return ob_get_clean();
+}
+
+
 function format_price($price)
 {
   $price = ceil($price);
@@ -14,7 +26,7 @@ function format_price($price)
 }
 
 
-function get_time_until_the_end()
+function get_time_until_the_end(string $format = 'H:i')
 {
   $secs_in_hour = 3600;
   $time_zone_correction = $secs_in_hour * 3;
@@ -24,16 +36,8 @@ function get_time_until_the_end()
   $ts = time();
   $ts_midnight = strtotime('tomorrow');
   $remaining_ts = $ts_midnight - $ts;
-  $remaining_time = date('H:i', $remaining_ts - $time_zone_correction);
+  $remaining_time = date($format, $remaining_ts - $time_zone_correction);
+
 
   return $remaining_time;
-}
-
-
-function render_template(string $template, array $data)
-{
-  extract($data);
-  ob_start();
-  require_once($template);
-  return ob_get_clean();
 }

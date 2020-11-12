@@ -46,9 +46,11 @@
     </div>
   </header>
 
-  <main class="container">
+
+  <main>
     <?= $content; ?>
   </main>
+
 
   <footer class="main-footer">
     <nav class="nav">
